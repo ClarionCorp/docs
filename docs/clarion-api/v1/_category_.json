@@ -1,0 +1,8 @@
+{
+  "label": "v1",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Clones of deprecated, legacy endpoints to keep older applications working with minimal hassle. We don't recommend you use these for new projects."
+  }
+}

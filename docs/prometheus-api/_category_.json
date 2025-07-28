@@ -1,0 +1,8 @@
+{
+  "label": "Prometheus API",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "This is the API that Odyssey created for Omega Strikers. We will be calling it Prometheus in the event that more games pop up in the future."
+  }
+}

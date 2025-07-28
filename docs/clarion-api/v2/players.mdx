@@ -1,0 +1,100 @@
+---
+sidebar_position: 1
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Player Fetching
+
+:::warning[Protected Endpoint]
+
+This endpoint requires authentication to access. You can learn more about that [here](#).
+
+:::
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/players/<USERNAME/ID>`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `cached`: Boolean
+        - If true, will not check Odyssey for new data. (Much faster)
+      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint replies with data on a specific player. It's basically like pulling up the stats page on a Player, but in JSON form.
+Below is the example response provided. We now automatically resolve titleIds to their english forms in the `title` field. If it fails, it will say `Unknown Title` instead.
+
+```JSON
+{
+  "id": "6333a58673a37dc7cb11a7a7",
+  "username": "blals",
+  "region": "NorthAmerica",
+  "logoId": "EmoticonData_Halloween_Era_Coffin",
+  "nameplateId": "NameplateData_ClarionCorp",
+  "emoticonId": "EmoticonData_JuliettePoint",
+  "titleId": "TitleData_Abandoned",
+  "title": "Abandoned",
+  "socialUrl": null,
+  "discordId": "246036218566017034",
+  "createdAt": "2025-07-09T04:06:02.810Z",
+  "tags": [
+    "verified"
+  ],
+  "updatedAt": "2025-07-27T17:17:20.169Z",
+  "currentXp": 1493,
+  "playerStatus": "Offline",
+  "characterRatings": [
+    {
+      "id": 7,  // These are our database IDs. You can ignore them 99% of the time.
+      "playerId": "6333a58673a37dc7cb11a7a7",
+      "character": "CD_WhipFighter",
+      "role": "Forward",
+      "games": 6,
+      "assists": 4,
+      "knockouts": 4,
+      "losses": 1,
+      "mvp": 1,
+      "saves": 13,
+      "scores": 31,
+      "wins": 5,
+      "gamemode": "RankedInitial",
+      "createdAt": "2025-07-27T17:17:20.163Z"
+    }
+  ],
+  "ratings": [
+    {
+      "id": 278,  // These are our database IDs. You can ignore them 99% of the time.
+      "playerId": "6333a58673a37dc7cb11a7a7",
+      "rating": 1757,
+      "rank": 3098,
+      "wins": 6,
+      "losses": 3,
+      "masteryLevel": 187,
+      "games": 9,
+      "createdAt": "2025-07-27T17:17:19.940Z",
+      "season": 1 // Unused for now. Leftovers from the Corestrike Merger.
+    }
+  ],
+  "teams": [],
+  "mastery": {
+    "currentLevel": 187,
+    "currentLevelXp": 1493,
+    "totalXp": 3741493,
+    "xpToNextLevel": 20000
+  }
+}
+```
+
+All dates are in ISO-8601, and in the UTC timezone.

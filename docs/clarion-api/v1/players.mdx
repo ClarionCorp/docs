@@ -1,0 +1,127 @@
+---
+sidebar_position: 1
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Player Fetching
+
+:::warning[Protected Endpoint]
+
+This endpoint requires authentication to access. You can learn more about that [here](#).
+
+:::
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v1/players/<USERNAME/ID>`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `cached`: Boolean
+        - If true, will not check Odyssey for new data. (Much faster)
+      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint replies with data on a specific player. It's designed to replicate the output that you would get from the legacy Corestrike API. It exists solely for applications that used the Corestrike API and haven't switched to [`v2`](/docs/category/v2/) yet. If you are starting a new project, please build it around [`v2`](/docs/category/v2/) instead. This endpoint is much slower since it still has to fetch the normal way, then parse it into this custom structure.
+
+Below is the example response provided.
+
+```JSON
+{
+  "rankedStats": {
+    "username": "blals",
+    "rating": 1757,
+    "rating_display": "Gold",
+    "rank": 2470,
+    "role": "Forward",
+    "wins": 6,
+    "losses": 3,
+    "winpercent": "66.66666666666666%",
+    "toppercent": "24.7%",
+    "is_ranked": true,
+    "masteryLevel": 187,
+    "playerStatus": "Offline",
+    "lp_history": [
+      [1750129413080, 1757],  // First number is a unix timestamp, second is their rating.
+      [1748719644608, 1734],
+      [1748718021152, 1700],
+      [1748714509555, 1666],
+      [1748711703857, 1654],
+      [1745635770714, 2067],
+      [1745632133563, 2029],
+      [1745630243403, 2000]
+    ]
+  },
+  "characterStats": {
+    "forwards": [
+      {
+        "name": "CD_WhipFighter",
+        "display_name": "Rasmus",
+        "wins": 5,
+        "losses": 1,
+        "assists": 4,
+        "mvp": 1,
+        "knockouts": 4,
+        "scores": 31,
+        "saves": 13
+      }
+    ],
+    "goalies": [
+      {
+        "name": "CD_WhipFighter",
+        "display_name": "Rasmus",
+        "wins": 0,
+        "losses": 0,
+        "assists": 0,
+        "mvp": 0,
+        "knockouts": 0,
+        "scores": 0,
+        "saves": 0
+      }
+    ]
+  },
+  "overallStats": {
+    "forwards": {
+      "name": "Forwards",
+      "display_name": "Unknown",
+      "wins": 6,
+      "losses": 3,
+      "assists": 7,
+      "mvp": 1,
+      "knockouts": 6,
+      "scores": 36,
+      "saves": 20
+    },
+    "goalies": {
+      "name": "Goalies",
+      "display_name": "Unknown",
+      "wins": 0,
+      "losses": 0,
+      "assists": 0,
+      "mvp": 0,
+      "knockouts": 0,
+      "scores": 0,
+      "saves": 0
+    }
+  },
+  "teams": [
+    {
+      "teamName": "unknown",
+      "teamId": "unknown",
+      "logo": "unknown"
+    }
+  ],
+  "lastUpdated": "2025-06-20T20:14:12.109Z"
+}
+```

@@ -1,0 +1,8 @@
+{
+  "label": "v2",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "The current, mainly used version of our API. We recommend you using these for new projects. All dates are in ISO-8601 standard, and in UTC timezone."
+  }
+}
