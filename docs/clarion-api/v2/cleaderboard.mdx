@@ -1,0 +1,89 @@
+---
+sidebar_position: 10
+slug: 'character-leaderboard'
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Character Leaderboard
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/leaderboard/character`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `sort`: 'character', 'wins', 'losses', or 'winrate'
+        - Which column of data to sort by, defaults to winrate.
+      - `direction`: 'asc' or 'desc'
+        - Which way to view the currently selected column of data. (sort)
+      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+      - `gamemode`: 'Normal' or 'Ranked'
+        - Returns only games played from the specified game mode.
+      - `character`: String
+        - Returns only characters with the matching [characterId](/docs/FAQ/characterids.md).
+      - `role`: 'Forward' or 'Goalie'
+        - Returns only characters who've been played in the specified position.
+      - `rank`: String or Int32
+        - Limits to entries collected from a specific ELO.
+      - `tumbleweeds`: Boolean
+        - Include entries with less than 10 games, wins, or losses. Defaults to false.
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint is extremely customizable for fetching data from our local table. This means that you don't need authentication, and you can scan really fast.
+I intend to expand more on the parameters here at some point, but the basics can be found in the Quick Usage.
+
+Also, tumbleweeds are entries that have EITHER:
+- Less than 10 games played
+- Less than 10 games won
+- Less than 10 games lost
+By default, entries matching any of these are hidden since there isn't enough data to compare fairly. You can re-enable them if you'd like.
+
+
+If you need the list of characters matching their IDs, you can check out [this page](/docs/FAQ/characterids.md).
+
+```JSON
+{
+  "lastUpdated": "3 days ago",
+  "sortKey": "winrate",
+  "sortDirection": "desc",
+  "region": "Global",
+  "data": [
+    {
+      "character": "CD_FlexibleBrawler",  // You can view the list of characters above.
+      "gamemode": "NormalInitial",        // Odyssey tags gamemodes suffixed with "Initial". Sorry.
+      "role": "Forward",
+      "games": 915,
+      "region": "Global",
+      "rankGroup": "Rookie",
+      "wins": 786,
+      "losses": 129,
+      "winrate": 85.9
+    },
+    {
+      "character": "CD_AngelicSupport",   // You can view the list of characters above.
+      "gamemode": "NormalInitial",        // Odyssey tags gamemodes suffixed with "Initial". Sorry.
+      "role": "Forward",
+      "games": 175,
+      "region": "Global",
+      "rankGroup": "Rookie",
+      "wins": 149,
+      "losses": 26,
+      "winrate": 85.1
+    },
+    // rest of entries excluded in example
+  ]
+}
+```
+
+All dates are in ISO-8601, and in the UTC timezone.

@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Clarion API Docs',
+  tagline: 'Free, Public Omega Strikers Proxy API',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docs.clarioncorp.net',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'ClarionCorp', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -42,10 +42,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/ClarionCorp/docs',
         },
         blog: {
           showReadingTime: true,
@@ -53,10 +52,9 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/ClarionCorp/docs',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -73,9 +71,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Clarion Docs',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'CC Cog',
         src: 'img/logo.svg',
       },
       items: [
@@ -83,11 +81,21 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        // {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://clarioncorp.net',
+          label: 'ClarionCorp',
+          position: 'left',
+        },
+        {
+          href: 'https://omegastrikers.wiki.gg',
+          label: 'OS Wiki',
+          position: 'left',
+        },
+        {
+          href: 'https://github.com/ClarionCorp/docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -100,43 +108,47 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Clarion API v2',
+              to: '/docs/category/v2',
+            },
+            {
+              label: 'Odyssey OS API',
+              to: '/docs/category/prometheus-api',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Resources',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Official OS Wiki',
+              href: 'https://omegastrikers.wiki.gg',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Modding Discord',
+              href: 'https://discord.gg/e576Mpd3B5',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'CC Socials',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'OS Stats',
+              href: 'https://clarioncorp.net',
             },
+            // {
+            //   label: 'API Source',
+            //   href: 'https://github.com/ClarionCorp/API',
+            // },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/ClarionCorp',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ClarionCorp`,
     },
     prism: {
       theme: prismThemes.github,

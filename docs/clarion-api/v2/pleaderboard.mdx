@@ -1,0 +1,91 @@
+---
+sidebar_position: 5
+slug: 'player-leaderboard'
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Player Leaderboard
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/leaderboard/players`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `page`: Int32
+        - Traverse multiple pages. There are 25 players per page.
+      - `sort`: 'rank', 'rating', 'wins', 'losses', or 'winrate'
+        - Which column of data to sort by, defaults to rank(ing).
+      - `direction`: 'asc' or 'desc'
+        - Which way to view the currently selected column of data. (sort)
+      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+      - `character`: String
+        - Returns only players whose top character is the same [characterId](/docs/FAQ/characterids.md).
+      - `role`: 'Forward' or 'Goalie'
+        - Returns only players who plays that role for most of their games.
+      - `rank`: String or Int32
+        - Skips to players of that ELO. You can use the name of the rank, or the LP.
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint is extremely customizable for fetching data from our local table. This means that you don't need authentication, and you can scan really fast.
+I intend to expand more on the parameters here at some point, but the basics can be found in the Quick Usage.
+
+```JSON
+{
+  "page": 1,
+  "perPage": 100,
+  "totalItems": 50,
+  "totalPages": 1,
+  "lastUpdated": "3 hours ago",
+  "nextUpdate": "2025-08-04T00:00:00.084Z",
+  "sortKey": "rank",
+  "sortDirection": "asc",
+  "region": "Global", // Region you're searching in
+  "data": [
+    {
+      "rank": 1,
+      "region": "Global",
+      "username": "Alex2704",
+      "rating": 3928,
+      "rankName": "Pro League",
+      "playerId": "632ccddb4da41411b141a096",
+      "emoticonId": "EmoticonData_FlexibleBrawlerMasteryAnimated",
+      "titleId": "TitleData_WatchingTheSunset",
+      "nameplateId": "NameplateData_FlexibleBrawlerMasteryPremium",
+      "tags": [],
+      "masteryLevel": 513,
+      "socialUrl": null,
+      "wins": 135,
+      "losses": 64,
+      "winrate": 67.8,
+      "topRole": "Goalie",
+      "topCharacter": "CD_CleverSummoner",
+      "teams": [
+        {
+          "teamTag": "AH",
+          "teamName": "AiMi Haters",
+          "logo": "https://api.clarioncorp.net/assets/teams/AH.webp",
+          "series": "EUSL",
+          "season": "S1"
+        }
+      ],
+      "assets": {
+        "nameplate": "https://api.clarioncorp.net/assets/nameplate/NameplateData_FlexibleBrawlerMasteryPremium.webp`"
+      }
+    },
+  ]
+}
+```
+
+All dates are in ISO-8601, and in the UTC timezone.
