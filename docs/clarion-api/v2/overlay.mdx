@@ -1,0 +1,89 @@
+---
+sidebar_position: 15
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Overlay
+
+:::warning[Protected Endpoint]
+
+This endpoint requires authentication to access. You can learn more about that [here](#).
+
+This is not what *you* would use on OBS. You can find an OBS-Compatible widget on your CC Player Card.
+
+:::
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/overlay/<USERNAME>`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint replies with simplified data on a specific player. It is all the data needed for the OBS Widget on ClarionCorp.
+If you need live rating tracking, you can view that seperately [here](/docs/clarion-api/v2/tracking).
+
+```JSON
+{
+  "pilotData": {
+    "username": "blals",
+    "title": "Abandoned",
+    "emoticon": "EmoticonData_JuliettePoint",
+    "badgeData": {
+      "forwardStats": {
+        "assists": 10,
+        "games": 12,
+        "knockouts": 7,
+        "losses": 4,
+        "mvp": 1,
+        "saves": 25,
+        "scores": 59,
+        "wins": 8
+      },
+      "goalieStats": {
+        "assists": 9,
+        "games": 7,
+        "knockouts": 1,
+        "losses": 6,
+        "mvp": 0,
+        "saves": 394,
+        "scores": 7,
+        "wins": 1
+      },
+      "position": "FORWARD",
+      "mostPlayedCharacter": "CD_WhipFighter"
+    },
+    "masteryLevel": 189,
+    "nextMasteryXp": 20000,
+    "currentMasteryXp": 5607,
+    "tags": [
+      "verified"
+    ],
+    "teamData": [],
+    "playerStatus": "Offline"   // Currently doesn't work, but still here in case it gets re-added someday.
+  },
+  "rankCard": {
+    "rank": 6475,
+    "rating": 1765,
+    "regionRanking": 3191,
+    "region": "NorthAmerica",
+    "wins": 9,
+    "losses": 10,
+    "key": 2598318,             // I'm gonna keep it a stack, I don't remember what this does lol.
+    "peakRating": 2138
+  }
+}
+```

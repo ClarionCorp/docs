@@ -1,0 +1,70 @@
+---
+sidebar_position: 20
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# LP Tracking
+
+:::warning[Protected Endpoint]
+
+This endpoint requires authentication to access. You can learn more about that [here](#).
+
+This is not what *you* would use on OBS. You can find an OBS-Compatible widget on your CC Player Card.
+
+:::
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/tracking/<USERNAME>`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+        - Defaults to Global
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint replies with a short history of rating changes for a specific player.
+If a Player is not currently being tracked, it will start tracking upon first request.
+Internally, this will trigger a cronjob that will refresh tracked players every few minutes.
+Tracked Players whose rating has not changed for 3 hours will stop being tracked here.
+
+The system will automatically create two identical entries for the player's current rating,
+in order to draw a straight line in the overlay.
+
+This system may change in the future, and may or **may not** becoming tracking v3.
+
+```JSON
+{
+  "username": "blals",
+  "userId": "6333a58673a37dc7cb11a7a7",
+  "startedAt": "2025-08-06T04:10:30.015Z",
+  "ratings": [
+    {
+      "username": "blals",
+      "rating": 1765,
+      "loggedAt": "2025-08-06T04:10:29.020Z"
+    },
+    {
+      "username": "blals",
+      "rating": 1765,
+      "loggedAt": "2025-08-06T04:10:30.020Z"
+    },
+    {
+      "username": "blals",
+      "rating": 1800,
+      "loggedAt": "2025-08-06T04:15:00.020Z" // Newest are listed at the bottom
+    },
+  ]
+}
+```
