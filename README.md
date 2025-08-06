@@ -1,41 +1,5 @@
-# Website
+# ClarionCorp Official Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Our last documentation was in desperate need of an upgrade, so here it is! Shipped right alongside the new API and UI overhaul, hopefully this will be a great tool to getting started into our new API. You can find the live version of this repo at [docs.clarioncorp.net](https://docs.clarioncorp.net).
 
-## Installation
-
-```bash
-yarn
-```
-
-## Local Development
-
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This documentation is built on [docusaurus](https://github.com/facebook/docusaurus) from [facebook](https://github.com/facebook). So if it looks familiar, that's why.
