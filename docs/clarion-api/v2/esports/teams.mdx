@@ -1,0 +1,93 @@
+---
+sidebar_position: 1
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Esports Teams
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/teams`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      - `tag`: String
+        - Search for teams with a specific tag.
+      - `series`: String
+        - Search for teams from a specific series. (NASL, EUSL, etc.)
+      - `season`: String
+        - Search for teams from a specific series' season. (Not game season!)
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+With no parameters, this just returns a huge list of all of our registered teams and basic player data for them.
+If for whatever reason the `linkedId` is `null`, the `player` structure will not be present.
+This is because we do not have them cached in our system yet, or their id is wrong internally.
+Reach out if you think this is a problem, and we'll try our best to address it.
+
+### Parameters Explained
+- Tag
+  - This system was built in the event of two seperate teams having the same tag.
+  - Therefore, this returns an array— even though 99% of the time there will only be one entry.
+- Series
+  - This is just talking about which tournaments they come from.
+  - Currently we support 'EUSL', 'NASL', 'NASA', and 'NAST'.
+- Season
+  - This is referring to the series' set season, not the game season.
+
+```JSON
+[
+  {
+    "teamTag": "AH",
+    "teamName": "AiMi Haters",
+    "logo": "https://api.clarioncorp.net/assets/teams/AH.webp",
+    "series": "EUSL",
+    "season": "S1",
+    "players": [
+      {
+        "userId": "632ccddb4da41411b141a096",
+        "linkedId": "632ccddb4da41411b141a096",
+        "player": {
+          "username": "Alex2704",
+          "rating": 3799,
+          "tags": [],
+          "socialUrl": null
+        }
+      },
+      {
+        "userId": "6207ab8ebb65caa461faea38",
+        "linkedId": "6207ab8ebb65caa461faea38",
+        "player": {
+          "username": "Rekkosed",
+          "rating": 0,
+          "tags": [
+            "verified"
+          ],
+          "socialUrl": "twitch.tv/rekkosed"
+        }
+      },
+      {
+        "userId": "6327e553377c60ac34fe79e8",
+        "linkedId": "6327e553377c60ac34fe79e8",
+        "player": {
+          "username": "Venomyami",
+          "rating": 0,
+          "tags": [],
+          "socialUrl": null
+        }
+      }
+    ]
+  },
+  // Rest of entries removed for example
+]
+```

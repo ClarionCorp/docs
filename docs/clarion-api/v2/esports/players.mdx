@@ -1,0 +1,92 @@
+---
+sidebar_position: 2
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Esports Players
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`POST ${constants.siteUrl}/v2/teams/players`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="body" label="Body">
+      - `userIds`: string[]
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This is one of few POST endpoints here.
+This is because you can provide the JSON body with `userIds: string[]` to query a bunch of different users at a time.
+This will provide the teams that each player is linked to, and for each series/season.
+Please note that the teams are not grouped, nor ordered by player. (Like how `Wood ` is on two teams, but `TheHypeWalrus` is between them).
+
+```JSON
+[
+  {
+    "userId": "632ccddb4da41411b141a096",
+    "linkedId": "632ccddb4da41411b141a096",
+    "team": {
+      "teamTag": "AH",
+      "teamName": "AiMi Haters",
+      "logo": "https://api.clarioncorp.net/assets/teams/AH.webp",
+      "series": "EUSL",
+      "season": "S1"
+    },
+    "player": {
+      "username": "Alex2704"
+    }
+  },
+  {
+    "userId": "6461859a3e61269f45ef06e9",
+    "linkedId": "6461859a3e61269f45ef06e9",
+    "team": {
+      "teamTag": "WWD",
+      "teamName": "Windows",
+      "logo": "https://api.clarioncorp.net/assets/teams/WWD.webp",
+      "series": "EUSL",
+      "season": "S1"
+    },
+    "player": {
+      "username": "Wood "
+    }
+  },
+  {
+    "userId": "6333a5cfb89ad99502ce10f5",
+    "linkedId": "6333a5cfb89ad99502ce10f5",
+    "team": {
+      "teamTag": "AMM",
+      "teamName": "Ai Mi Myself",
+      "logo": "https://api.clarioncorp.net/assets/teams/AMM.webp",
+      "series": "NAST",
+      "season": "S1"
+    },
+    "player": {
+      "username": "TheHypeWalrus"
+    }
+  },
+  {
+    "userId": "6461859a3e61269f45ef06e9",
+    "linkedId": "6461859a3e61269f45ef06e9",
+    "team": {
+      "teamTag": "HOME",
+      "teamName": "Retirement Home",
+      "logo": "https://api.clarioncorp.net/assets/teams/HOME.webp",
+      "series": "EUSL",
+      "season": "S2"
+    },
+    "player": {
+      "username": "Wood "
+    }
+  }
+]
+```

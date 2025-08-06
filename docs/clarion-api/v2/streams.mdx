@@ -1,0 +1,52 @@
+---
+sidebar_position: 25
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Streams
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/streams`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      No parameters
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+This endpoint replies with a collection of pre-cached Omega Strikers livestreams.
+The YouTube endpoint is a bit hit-or-miss, but we're trying to tune it to be in line with our API limits. (Though we're trying to fix that!)
+For you however, there are no general rate limits that you need to worry about, so go ham. *(respectfully)*
+
+```JSON
+{
+  "twitch": [
+    {
+      "username": "ExampleUser",
+      "title": "Hardstuck Bronze Gaming | !bot",
+      "viewers": 24,
+      "thumbnail": "https://static-cdn.jtvnw.net/previews-ttv/live_user_exampleuser-1280x720.jpg"
+    }
+    {
+      "username": "EpicUsername",
+      "title": "OS Night #ranked :)",
+      "viewers": 5,
+      "thumbnail": "https://static-cdn.jtvnw.net/previews-ttv/live_user_epicusername-1280x720.jpg"
+    }
+  ],
+  "youtube": [
+    // Will get an example here eventually lol
+  ]
+}
+```
