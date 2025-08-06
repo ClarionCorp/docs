@@ -1,6 +1,6 @@
 {
   "label": "Esports",
-  "position": 30,
+  "position": 99,
   "link": {
     "type": "generated-index",
     "description": "Esports related endpoints."

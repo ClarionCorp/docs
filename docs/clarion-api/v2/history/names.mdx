@@ -1,0 +1,56 @@
+---
+sidebar_position: 1
+---
+import constants from '@site/constants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Name History
+
+
+<details>
+  <summary>Quick Usage</summary>
+  
+  <Tabs>
+    <TabItem value="url" label="URL">
+      <pre><code>
+      {`GET ${constants.siteUrl}/v2/history/names/<USERNAME/ID>`}
+      </code></pre>
+    </TabItem>
+
+    <TabItem value="params" label="Parameters">
+      No parameters
+    </TabItem>
+  </Tabs>
+  
+</details>
+
+Here you can search either using the **old username**, **new username**, or **current user ID**. Always returns an array.
+
+Previously, we were working on a system that allowed users to remove entries from their name history themselves,
+but we ended up indefinitely delaying the overall idea since it was taking too long. It may come back in the future, but for now:
+
+:::success NAME REMOVAL
+If you want your name history cleared, and you can prove you own the account—
+please [**join the discord**](https://clarioncorp.net/discord), and shoot me a message (blals), and I will get things settled! 💚
+:::
+
+```JSON
+{
+  "message": "Username searched, here is a list of all matching accounts. If you own any of these, and you want them removed, contact 'dsit' on Discord.",
+  "results": [
+    {
+      "userId": "644ee56bee6c797525948d43",
+      "newUsername": "marcotwink",
+      "oldUsername": "marcovinc",
+      "changedAt": "2025-05-14T19:22:00.000Z"
+    },
+    {
+      "userId": "667aaa75d208af8188c82700",
+      "newUsername": "the angry bird",
+      "oldUsername": "marcotwink",
+      "changedAt": "2025-04-27T18:00:00.000Z"
+    }
+  ]
+}
+```
