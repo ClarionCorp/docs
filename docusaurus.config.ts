@@ -44,7 +44,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ClarionCorp/docs',
+            'https://github.com/ClarionCorp/docs/tree/main',
         },
         blog: {
           showReadingTime: true,
@@ -54,7 +54,7 @@ const config: Config = {
           },
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ClarionCorp/docs',
+            'https://github.com/ClarionCorp/docs/tree/main',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
