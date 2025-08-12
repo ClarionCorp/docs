@@ -23,4 +23,4 @@ headers: { 'Authorization': `Bearer ${process.env.PRIVATE_API_TOKEN}` }
 
 The `Bearer` there is required, and I highly recommend storing your token in a `.env` file. If I find your token floating around online, or it has a huge surge of requests from various origins, I will contact you and possibly revoke your token.
 
-If you absolutely require a ton of requests, or zero downtime, I suggest exploring the [Prometheus Proxy](/docs/category/prometheus-proxy) directly yourself. We will hopefully have better documentation on it soon.
+If you absolutely require a ton of requests, or zero downtime, I suggest exploring the [Prometheus Proxy](/category/prometheus-proxy) directly yourself. We will hopefully have better documentation on it soon.

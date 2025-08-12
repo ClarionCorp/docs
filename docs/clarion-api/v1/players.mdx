@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 :::warning[Protected Endpoint]
 
-This endpoint requires authentication to access. You can learn more about that [here](/docs/FAQ/authentication).
+This endpoint requires authentication to access. You can learn more about that [here](/FAQ/authentication).
 
 :::
 
@@ -27,13 +27,13 @@ This endpoint requires authentication to access. You can learn more about that [
     <TabItem value="params" label="Parameters">
       - `cached`: Boolean
         - If true, will not check Odyssey for new data. (Much faster)
-      - `region`: [Region](/docs/clarion-api/internal-types/regions.md)
+      - `region`: [Region](/clarion-api/internal-types/regions.md)
     </TabItem>
   </Tabs>
   
 </details>
 
-This endpoint replies with data on a specific player. It's designed to replicate the output that you would get from the legacy Corestrike API. It exists solely for applications that used the Corestrike API and haven't switched to [`v2`](/docs/category/v2/) yet. If you are starting a new project, please build it around [`v2`](/docs/category/v2/) instead. This endpoint is much slower since it still has to fetch the normal way, then parse it into this custom structure.
+This endpoint replies with data on a specific player. It's designed to replicate the output that you would get from the legacy Corestrike API. It exists solely for applications that used the Corestrike API and haven't switched to [`v2`](/category/v2/) yet. If you are starting a new project, please build it around [`v2`](/category/v2/) instead. This endpoint is much slower since it still has to fetch the normal way, then parse it into this custom structure.
 
 Below is the example response provided.
 
